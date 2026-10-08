@@ -1,84 +1,61 @@
 {
     "round": 76,
 
-    "highspeed": {
+    "maps": [
+        {
+            "name": "Akina",
+            "route": "Down Hill",
+            "category": "Highspeed",
+            "cars": [
+                {
+                    "car": "AE86 Trueno",
+                    "top50": 12
+                },
+                {
+                    "car": "FD3S RX-7",
+                    "top50": 9
+                },
+                {
+                    "car": "S2000",
+                    "top50": 6
+                }
+            ]
+        },
 
-        "downhill": [
-            {
-                "car": "AE86 Trueno",
-                "top50": 18
-            },
-            {
-                "car": "FD3S RX-7",
-                "top50": 12
-            },
-            {
-                "car": "S2000",
-                "top50": 8
-            }
-        ],
+        {
+            "name": "Irohazaka",
+            "route": "Down Hill",
+            "category": "Technical",
+            "cars": [
+                {
+                    "car": "FD3S RX-7",
+                    "top50": 15
+                },
+                {
+                    "car": "AE86 Trueno",
+                    "top50": 8
+                },
+                {
+                    "car": "MR2",
+                    "top50": 5
+                }
+            ]
+        },
 
-        "hillclimb": [
-            {
-                "car": "FD3S RX-7",
-                "top50": 16
-            },
-            {
-                "car": "AE86 Trueno",
-                "top50": 11
-            },
-            {
-                "car": "RX-8",
-                "top50": 7
-            }
-        ],
-
-        "allrounder": [
-            {
-                "car": "S2000",
-                "top50": 15
-            },
-            {
-                "car": "RX-8",
-                "top50": 10
-            }
-        ]
-    },
-
-
-    "technical": {
-
-        "downhill": [
-            {
-                "car": "MR2",
-                "top50": 14
-            },
-            {
-                "car": "Civic Type R",
-                "top50": 10
-            }
-        ],
-
-        "hillclimb": [
-            {
-                "car": "Civic Type R",
-                "top50": 13
-            },
-            {
-                "car": "MR2",
-                "top50": 9
-            }
-        ],
-
-        "allrounder": [
-            {
-                "car": "RX-8",
-                "top50": 12
-            },
-            {
-                "car": "S2000",
-                "top50": 8
-            }
-        ]
-    }
+        {
+            "name": "Akagi",
+            "route": "Down Hill",
+            "category": "Technical",
+            "cars": [
+                {
+                    "car": "AE86 Trueno",
+                    "top50": 10
+                },
+                {
+                    "car": "FD3S RX-7",
+                    "top50": 7
+                }
+            ]
+        }
+    ]
 }
