@@ -1,0 +1,80 @@
+{
+    "round": 76,
+    "totalPridePlayers": 200,
+
+    "highspeed": {
+
+        "downhill": [
+            {
+                "car": "AE86 Trueno",
+                "players": 24
+            },
+            {
+                "car": "FD3S RX-7",
+                "players": 18
+            },
+            {
+                "car": "S2000",
+                "players": 12
+            }
+        ],
+
+        "hillclimb": [
+            {
+                "car": "FD3S RX-7",
+                "players": 20
+            },
+            {
+                "car": "AE86 Trueno",
+                "players": 15
+            }
+        ],
+
+        "allrounder": [
+            {
+                "car": "S2000",
+                "players": 17
+            },
+            {
+                "car": "RX-8",
+                "players": 10
+            }
+        ]
+    },
+
+    "technical": {
+
+        "downhill": [
+            {
+                "car": "MR2",
+                "players": 14
+            },
+            {
+                "car": "Civic Type R",
+                "players": 9
+            }
+        ],
+
+        "hillclimb": [
+            {
+                "car": "Civic Type R",
+                "players": 13
+            },
+            {
+                "car": "MR2",
+                "players": 8
+            }
+        ],
+
+        "allrounder": [
+            {
+                "car": "RX-8",
+                "players": 11
+            },
+            {
+                "car": "S2000",
+                "players": 7
+            }
+        ]
+    }
+}
