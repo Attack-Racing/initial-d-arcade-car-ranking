@@ -1,69 +1,146 @@
-fetch("data/ta.json")
-    .then(response => response.json())
-    .then(data => {
+```javascript
+Promise.all([
+    fetch("data/ta.json").then(response => response.json()),
+    fetch("data/maps.json").then(response => response.json())
+])
 
-        const carTotals = {};
+.then(([taData, mapsData]) => {
 
-        // Calculate total Top 50 appearances
-        data.maps.forEach(map => {
+    const carTotals = {};
 
-            map.cars.forEach(car => {
+    /*
+     * Read every TA entry
+     */
+    taData.entries.forEach(entry => {
 
-                if (!carTotals[car.car]) {
-                    carTotals[car.car] = {
-                        name: car.car,
-                        total: 0,
-                        maps: []
-                    };
-                }
+        const map =
+            mapsData[entry.map];
 
-                carTotals[car.car].total += car.top50;
+        if (!map) {
 
-                carTotals[car.car].maps.push({
-                    map: map.name,
-                    route: map.route,
-                    count: car.top50
-                });
-            });
+            console.warn(
+                "Map not found:",
+                entry.map
+            );
+
+            return;
+        }
+
+
+        /*
+         * Create car entry if it doesn't exist
+         */
+        if (!carTotals[entry.car]) {
+
+            carTotals[entry.car] = {
+
+                name: entry.car,
+
+                total: 0,
+
+                maps: []
+
+            };
+
+        }
+
+
+        /*
+         * Add Top 50 appearances
+         */
+        carTotals[entry.car].total +=
+            entry.top50;
+
+
+        /*
+         * Save map information
+         */
+        carTotals[entry.car].maps.push({
+
+            name: map.name,
+
+            route: map.route,
+
+            category: map.category,
+
+            count: entry.top50
 
         });
 
-        // Convert to array and sort
-        const rankings =
-            Object.values(carTotals)
-                .sort((a, b) => b.total - a.total);
-
-        displayRanking(rankings);
-
-    })
-    .catch(error => {
-        console.error(
-            "Failed to load TA data:",
-            error
-        );
     });
 
 
+    /*
+     * Convert object to array
+     * and sort by total Top 50 appearances
+     */
+    const rankings =
+        Object.values(carTotals)
+            .sort((a, b) => b.total - a.total);
+
+
+    displayRanking(rankings);
+
+})
+
+
+.catch(error => {
+
+    console.error(
+        "Failed to load TA data:",
+        error
+    );
+
+});
+
+
+/*
+ * Display the ranking
+ */
 function displayRanking(rankings) {
 
     const container =
         document.getElementById("ta-ranking");
 
+
     if (!container) {
+
         console.error(
             "TA ranking container not found."
         );
+
         return;
+
     }
+
+
+    container.innerHTML = "";
+
 
     rankings.forEach((car, index) => {
 
+
+        const wrapper =
+            document.createElement("div");
+
+
+        wrapper.className =
+            "ta-car";
+
+
+        /*
+         * Create main ranking row
+         */
         const row =
             document.createElement("div");
 
-        row.className = "ranking-row";
+
+        row.className =
+            "ranking-row";
+
 
         row.innerHTML = `
+
             <div class="position">
                 #${index + 1}
             </div>
@@ -83,43 +160,105 @@ function displayRanking(rankings) {
                 ${car.total}
             </div>
 
-            <div
-                id="maps-${index}"
-                class="map-details"
-                style="display:none;"
-            >
-                ${car.maps.map(map => `
-                    <div class="map-entry">
-                        <span>
-                            ${map.map} ${map.route}
-                        </span>
-
-                        <strong>
-                            ${map.count}
-                        </strong>
-                    </div>
-                `).join("")}
-            </div>
         `;
 
-        container.appendChild(row);
+
+        /*
+         * Create map details
+         */
+        const details =
+            document.createElement("div");
+
+
+        details.id =
+            `maps-${index}`;
+
+
+        details.className =
+            "map-details";
+
+
+        details.style.display =
+            "none";
+
+
+        car.maps.forEach(map => {
+
+
+            const mapEntry =
+                document.createElement("div");
+
+
+            mapEntry.className =
+                "map-entry";
+
+
+            mapEntry.innerHTML = `
+
+                <span>
+                    ${map.name}
+                    ${map.route}
+                </span>
+
+                <strong>
+                    ${map.count}
+                </strong>
+
+            `;
+
+
+            details.appendChild(
+                mapEntry
+            );
+
+        });
+
+
+        wrapper.appendChild(row);
+
+        wrapper.appendChild(details);
+
+        container.appendChild(wrapper);
 
     });
+
 }
 
 
+/*
+ * Open / close map information
+ */
 function toggleMaps(index) {
 
     const details =
-        document.getElementById(`maps-${index}`);
+        document.getElementById(
+            `maps-${index}`
+        );
+
 
     if (!details) {
+
         return;
+
     }
 
-    if (details.style.display === "none") {
-        details.style.display = "block";
-    } else {
-        details.style.display = "none";
+
+    if (
+        details.style.display ===
+        "none"
+    ) {
+
+        details.style.display =
+            "block";
+
     }
+
+    else {
+
+        details.style.display =
+            "none";
+
+    }
+
 }
+```
