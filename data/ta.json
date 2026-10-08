@@ -1,0 +1,84 @@
+{
+    "round": 76,
+
+    "highspeed": {
+
+        "downhill": [
+            {
+                "car": "AE86 Trueno",
+                "top50": 18
+            },
+            {
+                "car": "FD3S RX-7",
+                "top50": 12
+            },
+            {
+                "car": "S2000",
+                "top50": 8
+            }
+        ],
+
+        "hillclimb": [
+            {
+                "car": "FD3S RX-7",
+                "top50": 16
+            },
+            {
+                "car": "AE86 Trueno",
+                "top50": 11
+            },
+            {
+                "car": "RX-8",
+                "top50": 7
+            }
+        ],
+
+        "allrounder": [
+            {
+                "car": "S2000",
+                "top50": 15
+            },
+            {
+                "car": "RX-8",
+                "top50": 10
+            }
+        ]
+    },
+
+
+    "technical": {
+
+        "downhill": [
+            {
+                "car": "MR2",
+                "top50": 14
+            },
+            {
+                "car": "Civic Type R",
+                "top50": 10
+            }
+        ],
+
+        "hillclimb": [
+            {
+                "car": "Civic Type R",
+                "top50": 13
+            },
+            {
+                "car": "MR2",
+                "top50": 9
+            }
+        ],
+
+        "allrounder": [
+            {
+                "car": "RX-8",
+                "top50": 12
+            },
+            {
+                "car": "S2000",
+                "top50": 8
+            }
+        ]
+    }
+}
