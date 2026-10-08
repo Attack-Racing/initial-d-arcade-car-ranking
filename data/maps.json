@@ -1,0 +1,25 @@
+{
+    "AKINA_DH": {
+        "name": "Akina",
+        "route": "Down Hill",
+        "category": "Highspeed"
+    },
+
+    "AKINA_HC": {
+        "name": "Akina",
+        "route": "Hill Climb",
+        "category": "Highspeed"
+    },
+
+    "IROHAZAKA_DH": {
+        "name": "Irohazaka",
+        "route": "Down Hill",
+        "category": "Technical"
+    },
+
+    "AKAGI_DH": {
+        "name": "Akagi",
+        "route": "Down Hill",
+        "category": "Technical"
+    }
+}
