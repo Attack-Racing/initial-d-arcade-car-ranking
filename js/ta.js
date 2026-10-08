@@ -2,71 +2,77 @@ fetch("data/ta.json")
     .then(response => response.json())
     .then(data => {
 
-        showRanking(
-            data.highspeed.downhill,
-            "highspeed-downhill"
-        );
+        const carTotals = {};
 
-        showRanking(
-            data.highspeed.hillclimb,
-            "highspeed-hillclimb"
-        );
+        // Calculate total Top 50 appearances
+        data.maps.forEach(map => {
 
-        showRanking(
-            data.highspeed.allrounder,
-            "highspeed-allrounder"
-        );
+            map.cars.forEach(car => {
 
+                if (!carTotals[car.car]) {
+                    carTotals[car.car] = {
+                        name: car.car,
+                        total: 0,
+                        maps: []
+                    };
+                }
 
-        showRanking(
-            data.technical.downhill,
-            "technical-downhill"
-        );
+                carTotals[car.car].total += car.top50;
 
-        showRanking(
-            data.technical.hillclimb,
-            "technical-hillclimb"
-        );
+                carTotals[car.car].maps.push({
+                    map: map.name,
+                    route: map.route,
+                    count: car.top50
+                });
+            });
 
-        showRanking(
-            data.technical.allrounder,
-            "technical-allrounder"
-        );
+        });
+
+        // Convert to array and sort
+        const rankings =
+            Object.values(carTotals)
+                .sort((a, b) => b.total - a.total);
+
+        displayRanking(rankings);
 
     })
     .catch(error => {
-
         console.error(
             "Failed to load TA data:",
             error
         );
-
     });
 
 
-function showRanking(cars, elementId) {
+function displayRanking(rankings) {
 
     const container =
-        document.getElementById(elementId);
+        document.getElementById("ta-ranking");
 
+    if (!container) {
+        console.error(
+            "TA ranking container not found."
+        );
+        return;
+    }
 
-    cars.forEach((car, index) => {
+    rankings.forEach((car, index) => {
 
         const row =
             document.createElement("div");
 
-
         row.className = "ranking-row";
 
-
         row.innerHTML = `
-
             <div class="position">
                 #${index + 1}
             </div>
 
-            <div class="car-name">
-                ${car.car}
+            <div
+                class="car-name clickable-car"
+                onclick="toggleMaps(${index})"
+            >
+                ${car.name}
             </div>
 
             <div class="players">
@@ -74,14 +80,46 @@ function showRanking(cars, elementId) {
             </div>
 
             <div class="percentage">
-                ${car.top50}
+                ${car.total}
             </div>
 
-        `;
+            <div
+                id="maps-${index}"
+                class="map-details"
+                style="display:none;"
+            >
+                ${car.maps.map(map => `
+                    <div class="map-entry">
+                        <span>
+                            ${map.map} ${map.route}
+                        </span>
 
+                        <strong>
+                            ${map.count}
+                        </strong>
+                    </div>
+                `).join("")}
+            </div>
+        `;
 
         container.appendChild(row);
 
     });
+}
 
+
+function toggleMaps(index) {
+
+    const details =
+        document.getElementById(`maps-${index}`);
+
+    if (!details) {
+        return;
+    }
+
+    if (details.style.display === "none") {
+        details.style.display = "block";
+    } else {
+        details.style.display = "none";
+    }
 }
