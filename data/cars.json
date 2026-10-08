@@ -1,37 +1,17 @@
 {
     "AE86_T": {
         "name": "AE86 Trueno",
-        "category": "Highspeed",
+        "manufacturer": "Toyota",
+        "model": "AE86",
+        "category": "Technical",
         "subCategory": "Down Hill"
     },
 
     "FD3S": {
         "name": "FD3S RX-7",
+        "manufacturer": "Mazda",
+        "model": "FD3S",
         "category": "Highspeed",
         "subCategory": "Down Hill"
-    },
-
-    "S2000": {
-        "name": "S2000",
-        "category": "Highspeed",
-        "subCategory": "All Rounder"
-    },
-
-    "RX8": {
-        "name": "RX-8",
-        "category": "Highspeed",
-        "subCategory": "All Rounder"
-    },
-
-    "MR2": {
-        "name": "MR2",
-        "category": "Technical",
-        "subCategory": "Down Hill"
-    },
-
-    "Civic": {
-        "name": "Civic Type R",
-        "category": "Technical",
-        "subCategory": "Hill Climb"
     }
 }
