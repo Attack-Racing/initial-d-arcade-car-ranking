@@ -183,3 +183,45 @@ footer {
     }
 
 }
+
+```css
+.ta-car {
+    margin-bottom: 10px;
+}
+
+.clickable-car {
+    cursor: pointer;
+}
+
+.clickable-car:hover {
+    text-decoration: underline;
+}
+
+.map-details {
+    background: #151515;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: -5px 0 15px 60px;
+    padding: 10px;
+}
+
+.map-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.map-entry:last-child {
+    border-bottom: none;
+}
+
+.map-entry span {
+    color: #aaa;
+}
+
+.map-entry strong {
+    color: white;
+}
+```
