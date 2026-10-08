@@ -1,61 +1,37 @@
 {
     "round": 76,
 
-    "maps": [
+    "entries": [
         {
-            "name": "Akina",
-            "route": "Down Hill",
-            "category": "Highspeed",
-            "cars": [
-                {
-                    "car": "AE86 Trueno",
-                    "top50": 12
-                },
-                {
-                    "car": "FD3S RX-7",
-                    "top50": 9
-                },
-                {
-                    "car": "S2000",
-                    "top50": 6
-                }
-            ]
+            "map": "AKINA_DH",
+            "car": "FD3S RX-7",
+            "top50": 9
+        },
+        {
+            "map": "IROHAZAKA_DH",
+            "car": "FD3S RX-7",
+            "top50": 15
+        },
+        {
+            "map": "AKAGI_DH",
+            "car": "FD3S RX-7",
+            "top50": 7
         },
 
         {
-            "name": "Irohazaka",
-            "route": "Down Hill",
-            "category": "Technical",
-            "cars": [
-                {
-                    "car": "FD3S RX-7",
-                    "top50": 15
-                },
-                {
-                    "car": "AE86 Trueno",
-                    "top50": 8
-                },
-                {
-                    "car": "MR2",
-                    "top50": 5
-                }
-            ]
+            "map": "AKINA_DH",
+            "car": "AE86 Trueno",
+            "top50": 12
         },
-
         {
-            "name": "Akagi",
-            "route": "Down Hill",
-            "category": "Technical",
-            "cars": [
-                {
-                    "car": "AE86 Trueno",
-                    "top50": 10
-                },
-                {
-                    "car": "FD3S RX-7",
-                    "top50": 7
-                }
-            ]
+            "map": "IROHAZAKA_DH",
+            "car": "AE86 Trueno",
+            "top50": 8
+        },
+        {
+            "map": "AKAGI_DH",
+            "car": "AE86 Trueno",
+            "top50": 10
         }
     ]
 }
